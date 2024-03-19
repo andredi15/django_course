@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Starting Page - My Blog
+{% endblock title %}
+
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock css_files %}
+
+
+{% block content %}
+
+<section id="welcome">
+    <header>
+        <img src="{% static 'blog/images/self.jpg' %}" alt="Andre the Author">
+        <h2>Andre's Blog</h2>
+    </header>
+    <p>Hi, I'm Andre and I love to blog about tech and news.</p>
+</section>
+<section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+    <ul>
+        {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+        {% endfor %}
+
+    </ul>
+</section>
+<section id="about">
+    <h2>What I Do</h2>
+    <p>I love programming and helping others, as well as new tech!</p>
+    <p>My goal is to keep growing and learning.</p>
+</section>
+{% endblock content %}
